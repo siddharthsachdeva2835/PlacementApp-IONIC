@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Student Information</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <button ion-button color="primary" outline full (click)="openCompanyList()">
+    EDIT
+  </button>
+  <ion-list color="primary">
+    <ion-item>
+      <ion-label fixed color="primary">Name</ion-label>
+      <ion-input clearInput type="text" value=""></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed color="primary">Branch</ion-label>
+      <ion-input clearInput type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed color="primary">Roll No</ion-label>
+      <ion-input clearInput type="number"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed color="primary">CGPA</ion-label>
+      <ion-input clearInput type="number"></ion-input>
+    </ion-item>
+    <button strong icon-end ion-button color="danger" block (click)="openCompanyList()">
+      DELETE
+    </button>
+    <button strong icon-end ion-button color="primary" block (click)="openCompanyList()">
+      SAVE
+    </button>
+  </ion-list>
+</ion-content>

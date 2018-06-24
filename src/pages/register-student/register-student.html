@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Register Student</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-scroll scrollY="true" style="height:90vh">
+    <ion-list *ngFor="let Student of Students">
+      <button ion-button icon-right class="btn-align" color="primary" outline block (click)="openEditList()">
+        {{Student.name}}
+        <ion-icon color="secondary" name="add-circle"></ion-icon>
+      </button>
+    </ion-list>
+  </ion-scroll>
+</ion-content>

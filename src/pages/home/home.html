@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title text-center>
+      Placements App
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <button ion-button color="primary" outline block (click)="openUserList()">
+      <ion-icon class="icons" name="person-add"></ion-icon>
+      Manage Student
+    </button>
+    <button ion-button color="primary" outline block (click)="openCompanyList()">
+      <ion-icon class="icons" ios="ios-trending-up" md="md-trending-up"></ion-icon>
+      Manage Company
+    </button>
+  </ion-list>

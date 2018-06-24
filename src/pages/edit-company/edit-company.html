@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Company Information</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <button ion-button color="primary" outline full (click)="openCompanyList()">
+    EDIT
+  </button>
+  <ion-list color="primary">
+    <ion-item>
+      <ion-label fixed color="primary">Name</ion-label>
+      <ion-input clearInput type="text" value=""></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed color="primary">Branches</ion-label>
+      <ion-input clearInput type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed color="primary">Date</ion-label>
+       <ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="myDate"></ion-datetime>
+    </ion-item>
+    <button ion-button icon-right class="btn-align" color="dark" outline block (click)="openRegistrationList()">
+      Registration List
+      <ion-icon name="md-arrow-dropright-circle"></ion-icon>
+    </button>
+    <button strong icon-end ion-button color="danger" block (click)="openCompanyList()">
+      DELETE
+    </button>
+    <button strong icon-end ion-button color="primary" block (click)="openCompanyList()">
+      SAVE
+    </button>
+    <button icon-end ion-button color="primary" full (click)="openRegisterStudent()">
+      Register Student
+      <ion-icon name="md-add-circle"></ion-icon>
+    </button>
+  </ion-list>
+</ion-content>
