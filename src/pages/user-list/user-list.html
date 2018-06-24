@@ -7,14 +7,14 @@
 <ion-content padding>
   <ion-scroll scrollY="true" style="height:78vh">
     <ion-list *ngFor="let Student of Students">
-      <button ion-button icon-right class="btn-align" color="dark" outline block (click)="openEditList()">
+      <button ion-button icon-right round class="btn-align" color="primary" outline block (click)="openEditList()">
         {{Student.name}}
-        <ion-icon name="md-arrow-dropright-circle"></ion-icon>
+        <ion-icon color="secondary" name="md-arrow-dropright-circle"></ion-icon>
       </button>
     </ion-list>
   </ion-scroll>
   <button icon-end ion-button color="primary" full (click)="openEditList()">
+    <ion-icon name="md-add-circle" style="position:relative; top:-1px; left:-6px;"></ion-icon>
     Add Student
-    <ion-icon name="md-add-circle"></ion-icon>
   </button>
 </ion-content>

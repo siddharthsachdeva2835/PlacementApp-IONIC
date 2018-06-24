@@ -7,13 +7,13 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
-    <button ion-button color="primary" outline block (click)="openUserList()">
-      <ion-icon class="icons" name="person-add"></ion-icon>
+  <ion-list style="content-align:center;">
+    <button ion-button id="student-btn" color="primary" outline round large (click)="openUserList()">
+      <ion-icon color="dark" style="position:relative; top:-1px; left:-6px;" class="icons" name="person-add"></ion-icon>
       Manage Student
     </button>
-    <button ion-button color="primary" outline block (click)="openCompanyList()">
-      <ion-icon class="icons" ios="ios-trending-up" md="md-trending-up"></ion-icon>
+    <button ion-button id="company-btn" color="primary" outline large round (click)="openCompanyList()">
+      <ion-icon style="position:relative; top:-1px; left:-6px;" class="icons" ios="ios-trending-up" md="md-trending-up"></ion-icon>
       Manage Company
     </button>
   </ion-list>

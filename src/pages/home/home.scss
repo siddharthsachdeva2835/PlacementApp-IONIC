@@ -5,4 +5,24 @@ page-home {
   .icons {
     padding: 8px;
   }
+  #student-btn {
+    display: block;
+    margin: auto;
+    position: relative;
+    top: 25vh;
+    width: 300px;
+    height: 80px;
+  }
+  #company-btn{
+    display: block;
+    margin: auto;
+    position: relative;
+    top: 30vh ;
+    height: 80px ;
+    width: 300px ;
+  }
+
+  .button-inner{
+    color: #222 ;
+  }
 }

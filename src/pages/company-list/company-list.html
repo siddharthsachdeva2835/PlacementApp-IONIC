@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar color="secondary">
+  <ion-navbar color="primary">
     <ion-title>Company List</ion-title>
   </ion-navbar>
 </ion-header>
@@ -7,15 +7,15 @@
 <ion-content padding>
   <ion-scroll scrollY="true" style="height:78vh">
     <ion-list *ngFor="let Company of Companies">
-      <button ion-button icon-right class="btn-align" color="dark" outline block (click)="openEditList()">
+      <button ion-button icon-right round class="btn-align" color="primary" outline block (click)="openEditList()">
         {{Company.name}}
-        <ion-icon name="md-arrow-dropright-circle"></ion-icon>
+        <ion-icon color="secondary"name="md-arrow-dropright-circle"></ion-icon>
       </button>
     </ion-list>
   </ion-scroll>
 
-  <button icon-end ion-button color="secondary" block (click)="openEditList()">
+  <button icon-end ion-button color="primary" block (click)="openEditList()">
+    <ion-icon name="md-add-circle" style="position:relative; top:-2px; left:-10px;"></ion-icon>
     Register New Company
-    <ion-icon name="md-add-circle"></ion-icon>
   </button>
 </ion-content>
