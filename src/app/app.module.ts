@@ -12,6 +12,7 @@ import { EditUserPage } from '../pages/edit-user/edit-user';
 import { EditCompanyPage } from '../pages/edit-company/edit-company';
 import { RegistrationsPage } from '../pages/registrations/registrations';
 import { RegisterStudentPage } from '../pages/register-student/register-student';
+import { AddStudentPage } from '../pages/add-student/add-student';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { RegisterStudentPage } from '../pages/register-student/register-student'
     EditUserPage,
     EditCompanyPage,
     RegistrationsPage,
-    RegisterStudentPage
+    RegisterStudentPage,
+    AddStudentPage
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,8 @@ import { RegisterStudentPage } from '../pages/register-student/register-student'
     EditUserPage,
     EditCompanyPage,
     RegistrationsPage,
-    RegisterStudentPage
+    RegisterStudentPage,
+    AddStudentPage
   ],
   providers: [
     StatusBar,

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EditUserPage } from '../edit-user/edit-user';
-
+import { AddStudentPage } from '../add-student/add-student';
 @IonicPage()
 @Component({
   selector: 'page-user-list',
@@ -26,6 +26,10 @@ export class UserListPage {
 
   openEditList(){
     this.navCtrl.push(EditUserPage)
+  }
+
+  openAddList(){
+    this.navCtrl.push(AddStudentPage)
   }
 
   ionViewDidLoad() {

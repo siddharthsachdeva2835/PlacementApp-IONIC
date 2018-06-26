@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Add Student</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="formgroup">
+    <ion-list color="primary">
+      <ion-item>
+        <ion-label fixed color="primary">Name</ion-label>
+        <ion-input clearInput type="text" formControlName="name"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="name.hasError('required') && name.touched">
+        <p style="color:red;display:block;text-align:center;">Enter a Name</p>
+      </ion-item>
+      <ion-item *ngIf="name.hasError('pattern') && name.touched">
+        <p style="color:red;display:block;text-align:center;">Enter a valid Name</p>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed color="primary">Branch</ion-label>
+        <ion-input clearInput type="text" formControlName="branch"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="branch.hasError('required') && branch.touched">
+        <p style="color:red;display:block;text-align:center;">Enter a Branch</p>
+      </ion-item>
+      <ion-item *ngIf="branch.hasError('pattern') && branch.touched">
+        <p style="color:red;display:block;text-align:center;">Enter a valid Branch</p>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed color="primary">Roll No</ion-label>
+        <ion-input clearInput type="number" formControlName="rollno"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="rollno.hasError('required') && rollno.touched">
+        <p style="color:red;display:block;text-align:center;">Enter a valid Roll Number</p>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed color="primary">CGPA</ion-label>
+        <ion-input clearInput type="number" formControlName="cgpa"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="cgpa.hasError('required') && cgpa.touched">
+        <p style="color:red;display:block;text-align:center;">Enter a valid CGPA</p>
+      </ion-item>
+      <button strong icon-end ion-button [disabled]="formgroup.invalid" color="primary" block (click)="openCompanyList()">
+        SAVE
+      </button>
+    </ion-list>
+  </form>
+</ion-content>
