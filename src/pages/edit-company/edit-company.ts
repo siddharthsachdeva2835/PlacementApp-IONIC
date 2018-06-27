@@ -16,7 +16,7 @@ export class EditCompanyPage {
   Company : any ;
   Date : any ;
   name :any ;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public http: HttpClient) {
     this.Company = this.navParams.get('data') ;
     console.log(this.Company.branches);
     this.setValues() ;
@@ -28,18 +28,20 @@ export class EditCompanyPage {
   }
 
   openRegistrationList(){
-    this.navCtrl.push(RegistrationsPage) ;
+    this.navCtrl.push(RegistrationsPage,{data:this.Company}) ;
   }
 
   openRegisterStudent(){
-    this.navCtrl.push(RegisterStudentPage)
+    this.navCtrl.push(RegisterStudentPage,{data:this.Company})
   }
 
   deleteCompany(){
-    this.http.delete('http://127.0.0.1:3000/companyPortal/'+this.company._id).map(res => res).subscribe(data => {
+    console.log(this.Company._id) ;
+    this.http.delete('http://127.0.0.1:3000/companyPortal/'+this.Company._id).map(res => res).subscribe(data => {
       console.log(data) ;
-      this.navCtrl.pop() ;
     });
+    this.navCtrl.pop() ;
+    console.log("finished") ;
   }
 
   ionViewDidLoad() {

@@ -20,8 +20,8 @@ app.use('/studentPortal', studentPortal);
 var companyPortal = require('./routes/companyPortal');
 app.use('/companyPortal', companyPortal);
 //
-// var companyPage = require('./routes/companyPage');
-// app.use('/companyPage', companyPage);
+var companyPage = require('./routes/companyPage');
+app.use('/companyPage', companyPage);
 
 app.get('/',function(req,res){
   res.redirect('/studentPortal')

@@ -11,6 +11,7 @@ var urlencodedParser  = bodyParser.urlencoded({extended: true});
 var Company = require('./schemas/company') ;
 
 router.get('/',function(req,res){
+  console.log("getting");
   Company.find({},function(err,data){
     if(err) throw err ;
     res.status(200).send({"result":data}) ;
@@ -24,13 +25,13 @@ router.get('/',function(req,res){
 //   });
 // });
 //
-// router.delete('/:item',function(req,res){
-//   console.log(req.params.item);
-//   Company.find({name:req.params.item}).remove(function(err,data){
-//     console.log(data);
-//     if (err) throw err ;
-//     res.json(data) ;
-//   });
-// });
+router.delete('/:item',function(req,res){
+  console.log("deleting");
+  console.log(req.params.item);
+  Company.find({_id:req.params.item}).remove(function(err,data){
+    if (err) throw err ;
+    res.status(300) ;
+  });
+});
 
 module.exports = router ;
