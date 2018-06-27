@@ -1,34 +1,39 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EditCompanyPage } from '../edit-company/edit-company';
+import { Observable } from 'rxjs/Observable';
+import { HttpClient } from '@angular/common/http';
+import 'rxjs/add/operator/map' ;
+
 @IonicPage()
 @Component({
   selector: 'page-company-list',
   templateUrl: 'company-list.html',
 })
 export class CompanyListPage {
-  Companies = [
-    {
-      name : "nagarro",
-      branches : ["ICE"],
-      date : "22-10-18" ,
-      registered : ["siddharth"]
-    },{
-      name : "accolite",
-      branches : ["ECE","ICE"],
-      date :  "23-10-18",
-      registered : ["abhishek"]
-    }
-  ] ;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  Companies : any ;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient) {
+    console.log("constructing Company list") ;
+    this.loadCompanies() ;
   }
 
-  openEditList(){
-    this.navCtrl.push(EditCompanyPage) ;
+  loadCompanies(){
+    this.http.get('http://127.0.0.1:3000/companyPortal').map(res => res).subscribe(data => {
+      console.log(data) ;
+      this.Companies = data.result ;
+    });
+  }
+
+  openEditList(Company){
+    console.log(Company)
+    this.navCtrl.push(EditCompanyPage,{data:Company}) ;
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CompanyListPage');
   }
 
+  ionViewWillEnter(){
+    this.loadCompanies() ;
+  }
 }

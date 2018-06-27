@@ -17,8 +17,8 @@ app.use(cors()) ;
 var studentPortal = require('./routes/studentPortal');
 app.use('/studentPortal', studentPortal);
 
-// var companyPortal = require('./routes/companyPortal');
-// app.use('/companyPortal', companyPortal);
+var companyPortal = require('./routes/companyPortal');
+app.use('/companyPortal', companyPortal);
 //
 // var companyPage = require('./routes/companyPage');
 // app.use('/companyPage', companyPage);

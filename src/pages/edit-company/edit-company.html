@@ -10,24 +10,24 @@
   <ion-list color="primary">
     <ion-item>
       <ion-label fixed color="primary">Name</ion-label>
-      <ion-input clearInput type="text" value=""></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label fixed color="primary">Branches</ion-label>
-      <ion-input clearInput type="text"></ion-input>
+      <ion-input clearInput type="text" value="" [(ngModel)]="name" ></ion-input>
     </ion-item>
     <ion-item>
       <ion-label fixed color="primary">Date</ion-label>
-       <ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="myDate"></ion-datetime>
+       <ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="Date"></ion-datetime>
     </ion-item>
+    <button ion-button icon-right class="btn-align" color="dark" outline block (click)="showCheckbox()">
+      Branches
+      <ion-icon name="md-arrow-dropright-circle"></ion-icon>
+    </button>
     <button ion-button icon-right class="btn-align" color="dark" outline block (click)="openRegistrationList()">
       Registration List
       <ion-icon name="md-arrow-dropright-circle"></ion-icon>
     </button>
-    <button strong icon-end ion-button color="danger" block (click)="openCompanyList()">
+    <button strong icon-end ion-button color="danger" block (click)="deleteCompany()">
       DELETE
     </button>
-    <button strong icon-end ion-button color="primary" block (click)="openCompanyList()">
+    <button strong icon-end ion-button color="primary" block (click)="getDate()">
       SAVE
     </button>
     <button icon-end ion-button color="primary" full (click)="openRegisterStudent()">

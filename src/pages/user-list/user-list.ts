@@ -24,8 +24,6 @@ export class UserListPage {
     this.http.get('http://127.0.0.1:3000/studentPortal').map(res => res).subscribe(data => {
       this.Students = data.result ;
     });
-    // console.log("entered Load Students") ;
-    // this.Students = this.UserServiceProvider.getStudents() ;
   }
 
   openEditList(student){

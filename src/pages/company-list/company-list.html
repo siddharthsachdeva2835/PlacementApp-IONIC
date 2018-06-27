@@ -7,7 +7,7 @@
 <ion-content padding>
   <ion-scroll scrollY="true" style="height:78vh">
     <ion-list *ngFor="let Company of Companies">
-      <button ion-button icon-right round class="btn-align" color="primary" outline block (click)="openEditList()">
+      <button ion-button icon-right round class="btn-align" color="primary" outline block (click)="openEditList(Company)">
         {{Company.name}}
         <ion-icon color="secondary"name="md-arrow-dropright-circle"></ion-icon>
       </button>
