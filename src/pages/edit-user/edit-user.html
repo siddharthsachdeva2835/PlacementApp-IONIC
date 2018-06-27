@@ -5,31 +5,33 @@
 </ion-header>
 
 <ion-content padding>
-  <button ion-button color="dark" outline full (click)="openCompanyList()">
+  <button ion-button color="dark" outline full (click)="editDetails()">
     EDIT
   </button>
-  <ion-list color="primary">
-    <ion-item>
-      <ion-label fixed color="primary">Name</ion-label>
-      <ion-input clearInput type="text" value=""></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label fixed color="primary">Branch</ion-label>
-      <ion-input clearInput type="text"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label fixed color="primary">Roll No</ion-label>
-      <ion-input clearInput type="number"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label fixed color="primary">CGPA</ion-label>
-      <ion-input clearInput type="number"></ion-input>
-    </ion-item>
-    <button strong icon-end ion-button color="danger" block (click)="openCompanyList()">
-      DELETE
-    </button>
-    <button strong icon-end ion-button color="primary" block (click)="openCompanyList()">
-      SAVE
-    </button>
-  </ion-list>
+  <form [formGroup]="formgroup">
+    <ion-list color="primary">
+      <ion-item>
+        <ion-label fixed color="primary">Name</ion-label>
+        <ion-input type="text" value="" formControlName="name" readonly="true"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed color="primary">Branch</ion-label>
+        <ion-input type="text" value="" formControlName="branch" readonly="true"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed color="primary">Roll No</ion-label>
+        <ion-input type="number" formControlName="rollno" readonly="true"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed color="primary">CGPA</ion-label>
+        <ion-input type="number" formControlName="cgpa" readonly="true"></ion-input>
+      </ion-item>
+      <button strong icon-end ion-button color="danger" block (click)="deleteUser()">
+        DELETE
+      </button>
+      <!-- <button strong icon-end ion-button color="primary" [disabled]="formgroup.invalid" block (click)="openCompanyList()">
+        SAVE
+      </button> -->
+    </ion-list>
+  </form>
 </ion-content>

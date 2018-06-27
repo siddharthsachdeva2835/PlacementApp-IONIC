@@ -2,30 +2,34 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EditUserPage } from '../edit-user/edit-user';
 import { AddStudentPage } from '../add-student/add-student';
+import { Observable } from 'rxjs/Observable';
+// import { UserServiceProvider } from '../../providers/user-service/user-service';
+import { HttpClient } from '@angular/common/http';
+import 'rxjs/add/operator/map' ;
+
 @IonicPage()
 @Component({
   selector: 'page-user-list',
   templateUrl: 'user-list.html',
 })
+// public UserServiceProvider: UserServiceProvider
 export class UserListPage {
-  Students = [
-    {
-      name : "siddharth sachdeva",
-      branch : "ICE",
-      rollno : 539 ,
-      cgpa : 7.2
-    },{
-      name : "abhishek",
-      branch : "ECE",
-      rollno : 4 ,
-      cgpa : 7.1
-    }
-  ] ;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  Students : any;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient) {
+    console.log("constructing") ;
+    this.loadStudents() ;
   }
 
-  openEditList(){
-    this.navCtrl.push(EditUserPage)
+  loadStudents(){
+    this.http.get('http://127.0.0.1:3000/studentPortal').map(res => res).subscribe(data => {
+      this.Students = data.result ;
+    });
+    // console.log("entered Load Students") ;
+    // this.Students = this.UserServiceProvider.getStudents() ;
+  }
+
+  openEditList(student){
+    this.navCtrl.push(EditUserPage,{data:student}) ;
   }
 
   openAddList(){
@@ -34,6 +38,9 @@ export class UserListPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad UserListPage');
+  }
+  ionViewWillEnter(){
+    this.loadStudents() ;
   }
 
 }

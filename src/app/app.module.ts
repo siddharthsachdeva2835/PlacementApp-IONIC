@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -13,6 +14,9 @@ import { EditCompanyPage } from '../pages/edit-company/edit-company';
 import { RegistrationsPage } from '../pages/registrations/registrations';
 import { RegisterStudentPage } from '../pages/register-student/register-student';
 import { AddStudentPage } from '../pages/add-student/add-student';
+import { EditStudentDetailsPage } from '../pages/edit-student-details/edit-student-details';
+import { AppSettingsProvider } from '../providers/app-settings/app-settings';
+import { UserServiceProvider } from '../providers/user-service/user-service';
 
 @NgModule({
   declarations: [
@@ -24,9 +28,11 @@ import { AddStudentPage } from '../pages/add-student/add-student';
     EditCompanyPage,
     RegistrationsPage,
     RegisterStudentPage,
-    AddStudentPage
+    AddStudentPage,
+    EditStudentDetailsPage
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     IonicModule.forRoot(MyApp)
   ],
@@ -40,12 +46,15 @@ import { AddStudentPage } from '../pages/add-student/add-student';
     EditCompanyPage,
     RegistrationsPage,
     RegisterStudentPage,
-    AddStudentPage
+    AddStudentPage,
+    EditStudentDetailsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AppSettingsProvider,
+    UserServiceProvider
   ]
 })
 export class AppModule {}
