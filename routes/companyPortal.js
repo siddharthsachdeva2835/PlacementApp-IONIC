@@ -18,13 +18,14 @@ router.get('/',function(req,res){
   }) ;
 });
 
-// router.post('/',function(req,res){
-//   var newCompany = Company(req.body).save(function(err,data){
-//     if (err) throw err ;
-//     res.json(data) ;
-//   });
-// });
-//
+router.post('/',function(req,res){
+  console.log(req.body.data);
+  var newCompany = Company(req.body.data).save(function(err,data){
+    if (err) throw err ;
+    res.json(data) ;
+  });
+});
+
 router.delete('/:item',function(req,res){
   console.log("deleting");
   console.log(req.params.item);

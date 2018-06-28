@@ -15,6 +15,7 @@ import { RegistrationsPage } from '../pages/registrations/registrations';
 import { RegisterStudentPage } from '../pages/register-student/register-student';
 import { AddStudentPage } from '../pages/add-student/add-student';
 import { AddCompanyPage } from '../pages/add-company/add-company';
+import { EditCompanyDetailsPage } from '../pages/edit-company-details/edit-company-details';
 import { EditStudentDetailsPage } from '../pages/edit-student-details/edit-student-details';
 import { AppSettingsProvider } from '../providers/app-settings/app-settings';
 import { UserServiceProvider } from '../providers/user-service/user-service';
@@ -31,7 +32,8 @@ import { UserServiceProvider } from '../providers/user-service/user-service';
     RegisterStudentPage,
     AddStudentPage,
     EditStudentDetailsPage,
-    AddCompanyPage
+    AddCompanyPage,
+    EditCompanyDetailsPage
   ],
   imports: [
     HttpClientModule,
@@ -50,7 +52,8 @@ import { UserServiceProvider } from '../providers/user-service/user-service';
     RegisterStudentPage,
     AddStudentPage,
     EditStudentDetailsPage,
-    AddCompanyPage
+    AddCompanyPage,
+    EditCompanyDetailsPage
   ],
   providers: [
     StatusBar,

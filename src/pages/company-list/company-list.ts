@@ -20,7 +20,6 @@ export class CompanyListPage {
 
   loadCompanies(){
     this.http.get('http://127.0.0.1:3000/companyPortal').map(res => res).subscribe(data => {
-      console.log(data) ;
       this.Companies = data.result ;
     });
   }

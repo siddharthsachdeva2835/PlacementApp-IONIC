@@ -20,10 +20,17 @@ export class AddCompanyPage {
   }
 
   addCompany(){
-    console.log(this.name) ;
-    console.log(this.Date) ;
-    console.log(this.testCheckboxOpen) ;
-
+    console.log(this.branches) ;
+    var c = {
+      "name" : this.name,
+      "date" : this.Date,
+      "registered" : [],
+      "branches" : this.branches
+    } ;
+    this.http.post('http://127.0.0.1:3000/companyPortal',{data:c}).map(res => res).subscribe(data => {
+      console.log(data) ;
+    }); ;
+    this.navCtrl.pop() ;
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddCompanyPage');
@@ -36,42 +43,42 @@ export class AddCompanyPage {
     alert.addInput({
       type: 'checkbox',
       label: 'COE',
-      value: 0
+      value: 'coe'
       // checked: this.Company.branches[0]
     });
 
     alert.addInput({
       type: 'checkbox',
       label: 'IT',
-      value: 1
+      value: 'it'
       // checked: this.Company.branches[1]
     });
 
     alert.addInput({
       type: 'checkbox',
       label: 'ECE',
-      value: 2
+      value: 'ece'
       // checked: this.Company.branches[2]
     });
 
     alert.addInput({
       type: 'checkbox',
       label: 'ICE',
-      value: 3
+      value: 'ice'
       // checked: this.Company.branches[3]
     });
 
     alert.addInput({
       type: 'checkbox',
       label: 'MPAE',
-      value: 4
+      value: 'mpae'
       // checked: this.Company.branches[4]
     });
 
     alert.addInput({
       type: 'checkbox',
       label: 'BT',
-      value: 5
+      value: 'bt'
       // checked: this.Company.branches[5]
     });
 
@@ -80,9 +87,25 @@ export class AddCompanyPage {
       text: 'Okay',
       handler: data => {
         console.log('Checkbox data:', data);
-        this.testCheckboxOpen = true ;
         for(var i=0 ; i<data.length ; i++){
-          this.branches[data[i]] = 1 ;
+          if(data[i]=="coe"){
+            this.branches[0] = 1 ;
+          }
+          if(data[i]=="it"){
+            this.branches[1] = 1 ;
+          }
+          if(data[i]=="ece"){
+            this.branches[2] = 1 ;
+          }
+          if(data[i]=="ice"){
+            this.branches[3] = 1 ;
+          }
+          if(data[i]=="mpae"){
+            this.branches[4] = 1 ;
+          }
+          if(data[i]=="bt"){
+            this.branches[5] = 1 ;
+          }
         }
         console.log(this.branches) ;
       }

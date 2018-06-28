@@ -51,4 +51,13 @@ router.post('/',function(req,res){
   }
 });
 
+router.put('/',function(req,res){
+  console.log(req.body.data);
+  Company.update({_id:req.body.data._id},{$set:{name:req.body.data.name,date:req.body.data.date,branches:req.body.data.branches}},function(err,data){
+    console.log(data);
+    if(err) throw err ;
+    res.status(200);
+  });
+});
+
 module.exports = router ;

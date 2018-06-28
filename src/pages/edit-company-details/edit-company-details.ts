@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { RegistrationsPage } from '../registrations/registrations';
-import { RegisterStudentPage } from '../register-student/register-student';
-import { EditCompanyDetailsPage } from '../edit-company-details/edit-company-details';
 import { AlertController } from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
@@ -10,18 +7,16 @@ import 'rxjs/add/operator/map' ;
 
 @IonicPage()
 @Component({
-  selector: 'page-edit-company',
-  templateUrl: 'edit-company.html',
+  selector: 'page-edit-company-details',
+  templateUrl: 'edit-company-details.html',
 })
-export class EditCompanyPage {
+export class EditCompanyDetailsPage {
   Company : any ;
+  name : any ;
   Date : any ;
-  name :any ;
-  testCheckboxOpen : any ;
-  testCheckboxResult : any ;
+  branches = [0,0,0,0,0,0] ;
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public http: HttpClient) {
     this.Company = this.navParams.get('data') ;
-    console.log(this.Company.branches);
     this.setValues() ;
   }
 
@@ -30,35 +25,19 @@ export class EditCompanyPage {
     this.name = this.Company.name ;
   }
 
-  openRegistrationList(){
-    this.navCtrl.push(RegistrationsPage,{data:this.Company}) ;
-  }
-
-  openRegisterStudent(){
-    this.navCtrl.push(RegisterStudentPage,{data:this.Company})
-  }
-
-  editCompanyDetails(){
-    console.log("Editting company details") ;
-    this.navCtrl.push(EditCompanyDetailsPage,{data:this.Company}) ;
-  }
-
-  deleteCompany(){
-    console.log(this.Company._id) ;
-    this.http.delete('http://127.0.0.1:3000/companyPortal/'+this.Company._id).map(res => res).subscribe(data => {
+  saveCompany(){
+    this.Company.name = this.name ;
+    console.log(this.Company) ;
+    this.Company.date =  this.Date ;
+    this.http.put('http://127.0.0.1:3000/companyPage',{"data": this.Company}).map(res => res).subscribe(data => {
       console.log(data) ;
     });
+    this.navCtrl.remove(2,1);
     this.navCtrl.pop() ;
-    console.log("finished") ;
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad EditCompanyPage');
-    console.log(this.Company) ;
-  }
-
-  getDate() {
-    console.log(this.Date) ;
+    console.log('ionViewDidLoad EditCompanyDetailsPage');
   }
 
   showCheckbox() {
@@ -103,7 +82,7 @@ export class EditCompanyPage {
     alert.addInput({
       type: 'checkbox',
       label: 'BT',
-      value: 'value2',
+      value: 'bt',
       checked: this.Company.branches[5]
     });
 
@@ -112,11 +91,35 @@ export class EditCompanyPage {
       text: 'Okay',
       handler: data => {
         console.log('Checkbox data:', data);
-        this.testCheckboxOpen = false;
-        this.testCheckboxResult = data;
+        for(var i=0 ; i<data.length ; i++){
+          if(data[i]=="coe"){
+            this.branches[0] = 1 ;
+            this.Company.branches[0] = 1 ;
+          }
+          if(data[i]=="it"){
+            this.branches[1] = 1 ;
+            this.Company.branches[1] = 1 ;
+          }
+          if(data[i]=="ece"){
+            this.branches[2] = 1 ;
+            this.Company.branches[2] = 1 ;
+          }
+          if(data[i]=="ice"){
+            this.branches[3] = 1 ;
+            this.Company.branches[3] = 1 ;
+          }
+          if(data[i]=="mpae"){
+            this.branches[4] = 1 ;
+            this.Company.branches[4] = 1 ;
+          }
+          if(data[i]=="bt"){
+            this.branches[5] = 1 ;
+            this.Company.branches[5] = 1 ;
+          }
+        }
+        console.log(this.Company) ;
       }
     });
     alert.present();
   }
-
 }
