@@ -16,6 +16,8 @@ export class EditCompanyPage {
   Company : any ;
   Date : any ;
   name :any ;
+  testCheckboxOpen : any ;
+  testCheckboxResult : any ;
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public http: HttpClient) {
     this.Company = this.navParams.get('data') ;
     console.log(this.Company.branches);

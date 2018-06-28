@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EditCompanyPage } from '../edit-company/edit-company';
+import { AddCompanyPage } from '../add-company/add-company';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map' ;
@@ -27,6 +28,10 @@ export class CompanyListPage {
   openEditList(Company){
     console.log(Company)
     this.navCtrl.push(EditCompanyPage,{data:Company}) ;
+  }
+
+  openAddCompany(){
+    this.navCtrl.push(AddCompanyPage) ;
   }
 
   ionViewDidLoad() {

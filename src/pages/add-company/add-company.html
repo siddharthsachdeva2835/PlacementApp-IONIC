@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Add New Company</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-list color="primary">
+    <ion-item>
+      <ion-label fixed color="primary">Name</ion-label>
+      <ion-input clearInput type="text" value="" [(ngModel)]="name" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed color="primary">Date</ion-label>
+       <ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="Date"></ion-datetime>
+    </ion-item>
+    <button ion-button icon-right class="btn-align" color="dark" outline block (click)="showCheckbox()">
+      Branches
+      <ion-icon name="md-arrow-dropright-circle"></ion-icon>
+    </button>
+    <button strong icon-end ion-button color="primary" block (click)="addCompany()">
+      SAVE
+    </button>
+  </ion-list>
+</ion-content>
