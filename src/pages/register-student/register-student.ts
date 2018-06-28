@@ -29,10 +29,15 @@ export class RegisterStudentPage {
       console.log(data) ;
     });
     this.loadStudents() ;
+    this.navCtrl.pop() ;
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterStudentPage');
+  }
+
+  ionViewWillEnter(){
+    this.loadStudents() ;
   }
 
 }

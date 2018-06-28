@@ -91,32 +91,42 @@ export class EditCompanyDetailsPage {
       text: 'Okay',
       handler: data => {
         console.log('Checkbox data:', data);
+        var check = [0,0,0,0,0,0] ;
+
         for(var i=0 ; i<data.length ; i++){
           if(data[i]=="coe"){
-            this.branches[0] = 1 ;
-            this.Company.branches[0] = 1 ;
+            // this.branches[0] = 1 ;
+            // this.Company.branches[0] = 1 ;
+            check[0] = 1 ;
           }
           if(data[i]=="it"){
-            this.branches[1] = 1 ;
-            this.Company.branches[1] = 1 ;
+            // this.branches[1] = 1 ;
+            // this.Company.branches[1] = 1 ;
+            check[1] = 1 ;
           }
           if(data[i]=="ece"){
-            this.branches[2] = 1 ;
-            this.Company.branches[2] = 1 ;
+            // this.branches[2] = 1 ;
+            // this.Company.branches[2] = 1 ;
+            check[2] = 1 ;
           }
           if(data[i]=="ice"){
-            this.branches[3] = 1 ;
-            this.Company.branches[3] = 1 ;
+            // this.branches[3] = 1 ;
+            // this.Company.branches[3] = 1 ;
+            check[3] = 1 ;
           }
           if(data[i]=="mpae"){
-            this.branches[4] = 1 ;
-            this.Company.branches[4] = 1 ;
+            // this.branches[4] = 1 ;
+            // this.Company.branches[4] = 1 ;
+            check[4] = 1 ;
           }
           if(data[i]=="bt"){
-            this.branches[5] = 1 ;
-            this.Company.branches[5] = 1 ;
+            // this.branches[5] = 1 ;
+            // this.Company.branches[5] = 1 ;
+            check[5] = 1 ;
           }
         }
+        this.branches = check ;
+        this.Company.branches = check ;
         console.log(this.Company) ;
       }
     });

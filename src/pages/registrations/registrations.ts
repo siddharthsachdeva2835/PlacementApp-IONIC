@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { RegisterStudentPage } from '../register-student/register-student';
+import { RegistrationsPage } from '../registrations/registrations';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map' ;
@@ -30,6 +31,7 @@ export class RegistrationsPage {
       console.log(data) ;
     });
     this.loadStudents() ;
+    this.navCtrl.pop() ;
   }
 
   openRegisterStudent(){
@@ -37,6 +39,9 @@ export class RegistrationsPage {
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegistrationsPage');
+  }
+  ionViewWillEnter(){
+    this.loadStudents() ;
   }
 
 }
